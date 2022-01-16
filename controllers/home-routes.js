@@ -1,18 +1,41 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Post, User, Comment } = require('../models');
 
-//
+//When the URL is examplewebsite.com/, then the homepage.handlbars view will be rendered within the main.handlebars layout
 router.get('/', (req, res) => {
-    //passing object into homepage.handlbars template so each property is available in the template useing the {{}} syntax
-    res.render('homepage', {
-      id: 1,
-      title: 'Handlebars Docs',
-      post_contents: 'https://handlebarsjs.com/guide/',
-      created_at: new Date(),
-      comments: [{}, {}],
-      user: {
-        username: 'test_user'
+  Post.findAll({
+    attributes: [
+      'id',
+      'title',
+      'post_contents',
+      'created_at'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
       }
+    ]
+  })
+    .then(dbPostData => {
+
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      // pass a single post object into the homepage template
+      res.render('homepage', { posts });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  });
+});
 
 module.exports = router;

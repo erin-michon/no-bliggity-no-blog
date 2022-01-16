@@ -1,4 +1,6 @@
 <ol class="post-list">
+{{!-- The use of the each helper will repeat the html code inbetween for every item in the object posts --}}
+  {{#each posts}}
   <li>
     <article class="post">
       <div class="title">
@@ -9,4 +11,5 @@
       </div>
     </article>
   </li>
+  {{/each}}
 </ol>
