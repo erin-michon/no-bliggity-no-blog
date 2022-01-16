@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 
 //CRUD METHODS for User Model
@@ -22,20 +22,20 @@ router.get('/:id', (req, res) => {
       where: {
         id: req.params.id
       },
-    //   include: [
-    //     {
-    //       model: Post,
-    //       attributes: ['id', 'title', 'contents', 'created_at']
-    //     },
-    //     {
-    //       model: Comment,
-    //       attributes: ['id', 'comment_text', 'created_at'],
-    //       include: {
-    //         model: Post,
-    //         attributes: ['title']
-    //       }
-    //     }
-    // ]
+      include: [
+        {
+          model: Post,
+          attributes: ['id', 'title', 'contents', 'created_at']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'created_at'],
+          include: {
+            model: Post,
+            attributes: ['title']
+          }
+        }
+    ]
     })
       .then(dbUserData => {
         if (!dbUserData) {

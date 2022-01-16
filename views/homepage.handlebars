@@ -1,2 +1,12 @@
-//THEN I am presented with the **homepage**, which includes existing blog posts if any have been posted
-//navigation links for the homepage and the dashboard; and the option to log in
+<ol class="post-list">
+  <li>
+    <article class="post">
+      <div class="title">
+        {{title}}
+      </div>
+      <div class="meta">
+        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+      </div>
+    </article>
+  </li>
+</ol>
