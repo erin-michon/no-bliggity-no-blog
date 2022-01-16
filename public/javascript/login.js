@@ -1,6 +1,7 @@
 async function loginFormHandler(event) {
     event.preventDefault();
-  
+
+    console.log("clicked loginForm");
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   

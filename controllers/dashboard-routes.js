@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 //When the URL is examplewebsite.com/, then the homepage.handlbars view will be rendered within the main.handlebars layout
