@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../../models');
 
 
 //CRUD METHODS for User Model
-//GET all users
+//GET all users  examplewebsite.com/api/users/
 router.get('/', (req, res) => {
     User.findAll({
       attributes: { exclude: ['password'] }
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//GET one user, and all associated posts and comment with post
+//GET one user, and all associated posts and comment with post  examplewebsite.com/api/users/1
 router.get('/:id', (req, res) => {
     User.findOne({
       attributes: { exclude: ['password'] },
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//POST or create a user
+//POST or create a user examplewebsite.com/api/users
 router.post('/', (req, res) => {
     // expects {username: 'Erin', password: 'password1234'}
     User.create({
@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
     });
 });
 
-//User Login - Post Session
+//User Login - Post Session examplewebsite.com/api/users/login
 router.post('/login', (req, res) => {
     // expects {username: 'Erin', password: 'password1234'}
     User.findOne({
