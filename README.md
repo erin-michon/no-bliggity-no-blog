@@ -18,7 +18,7 @@ Installation requirements for dependencies:
 
 ## Application Deployment:
 
-Please visit the deployed application: [The Note-Taker](https://murmuring-sands-28795.herokuapp.com/)
+Please visit the deployed application: [The Note-Taker](https://desolate-peak-71627.herokuapp.com/)
 
 ## License:
 [MIT License](https://choosealicense.com/licenses/mit/)
