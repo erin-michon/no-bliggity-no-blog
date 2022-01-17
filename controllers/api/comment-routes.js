@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth.js');
+
 
 //GET all comments
 router.get('/', (req, res) => {
@@ -12,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //POST - create a comment
-router.post('/', (req, res) => {
+router.post('/',withAuth , (req, res) => {
     // expects {comment_text: 'Taskmaster goes public!', user_id: '2', post_id: '2'}  
     // check the session
     if (req.session) {
@@ -31,7 +33,7 @@ router.post('/', (req, res) => {
 });
 
 //DELETE - a comment
-router.delete('/:id', (req, res) => {
+router.delete('/:id',withAuth , (req, res) => {
     Comment.destroy({
       where: {
         id: req.params.id

@@ -16,7 +16,8 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        console.log('You are being redirected to the /dashboard/ url')
+        document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
       }
@@ -27,6 +28,7 @@ async function signupFormHandler(event) {
     event.preventDefault();
     
     console.log("clicked signupForm");
+
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   
@@ -41,7 +43,8 @@ async function signupFormHandler(event) {
       });
 
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        console.log('You are being redirected to the /dashboard/ url');
+        document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
       }

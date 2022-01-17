@@ -1,9 +1,11 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 //When the URL is examplewebsite.com/, then the homepage.handlbars view will be rendered within the main.handlebars layout
 router.get('/', (req, res) => {
   console.log(req.session);
+
   Post.findAll({
     attributes: [
       'id',
@@ -75,22 +77,25 @@ router.get('/post/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
+  .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    }
 
-      // serialize the data
-      const post = dbPostData.get({ plain: true });
+    // serialize the data
+    const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('single-post', { post });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn
+      });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;

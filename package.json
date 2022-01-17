@@ -15,7 +15,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/erin-michon/no-bliggity-no-blog/issues"
   },
-  "homepage": "https://github.com/erin-michon/no-bliggity-no-blog#readme"
+  "homepage": "https://github.com/erin-michon/no-bliggity-no-blog#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }

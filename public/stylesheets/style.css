@@ -6,13 +6,13 @@ body, html {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #333;
 }
 
 a {
     text-decoration: none;
-    color: #225ca3;
+    color: #eb16ab;
     font-weight: bold;
     transition: color .1s;
 }
@@ -22,7 +22,7 @@ a:hover {
 }
 
 button {
-    background-color: #225ca3;
+    background-color: #eb16ab;
     border: 0;
     padding: 1%;
     color: white;
@@ -97,7 +97,7 @@ main {
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
+    color: #eb16ab;
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
@@ -131,15 +131,6 @@ main {
 .edit-link {
     display: block;
     margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-    background-color: #1f9c13;
 }
 
 .comment-form {

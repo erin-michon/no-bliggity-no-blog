@@ -1,15 +1,7 @@
 <ol class="post-list">
-{{!-- The use of the each helper will repeat the html code inbetween for every item in the object posts --}}
-  {{#each posts}}
+  {{#each posts as |post|}}
   <li>
-    <article class="post">
-      <div class="title">
-        {{title}}
-      </div>
-      <div class="meta">
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-      </div>
-    </article>
+    {{> post-info post }}
   </li>
   {{/each}}
 </ol>

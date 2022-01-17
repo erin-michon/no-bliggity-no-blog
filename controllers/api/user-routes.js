@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-
+const withAuth = require('../../utils/auth.js');
 
 //CRUD METHODS for User Model
 //GET all users  examplewebsite.com/api/users/
@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 });
 
 //POST or create a user examplewebsite.com/api/users
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     // expects {username: 'Erin', password: 'password1234'}
     User.create({
       username: req.body.username,
@@ -115,7 +115,7 @@ router.post('/logout', (req, res) => {
 });
 
 //PUT - Edit User
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     // expects {username: 'Erin', password: 'password1234'}
   
     // pass in req.body instead to only update what's passed through
@@ -139,7 +139,7 @@ router.put('/:id', (req, res) => {
 });
 
 //DELETE - Delete a user  
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
       id: req.params.id
