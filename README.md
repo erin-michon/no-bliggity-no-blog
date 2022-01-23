@@ -1,7 +1,18 @@
-# No Bliggity - No Blog
+# No Bliggity - No Blog:  Tech Blog
 
 ## Description:
-This is an application built to allow user to publish posts/blogs/articles along with any commentary.  I primarily utilized my developing skill sets in express.js, express-handlebars, express-session, mysql and sequelize to create this application.  The application was also deployed to Heroku.  Some of the methods and skills I used are shown below:
+This is an application built to allow user to publish posts/blogs/articles along with any commentary.  
+
+## Technologies Used
+- Express.js
+- Handlebars.js
+- Sequelize
+- MySQL2
+- bcrypt
+- dotenv
+- express-sessions
+
+Some of the methods and skills I used are shown below:
 
 * Express.js and sequelize was utilized to start the server and sync it to the mysql database
 
@@ -10,11 +21,6 @@ This is an application built to allow user to publish posts/blogs/articles along
 * bycrypt npm package installed to hash the user passwords:
 
 ![image info](./public/assets/images/unique.JPG)
-
-## Installation:
-Installation requirements for dependencies:
-
-* npm install 
 
 ## Application Deployment:
 
